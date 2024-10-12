@@ -2005,6 +2005,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8095740640332382300}
   - component: {fileID: 9177476015379082350}
+  - component: {fileID: 1292221375223251820}
   m_Layer: 0
   m_Name: OxygenMeter
   m_TagString: Untagged
@@ -2039,7 +2040,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4e2d07f8f0a07a49bfe6414907020bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _inputMap: {fileID: -944628639613478452, guid: 7845958bc95bc5b40a05eb00304e56a4, type: 3}
   _oxygenTime: 70
   _player: {fileID: 11400000, guid: 449a428536e8e3f488e26ea1dfa41990, type: 2}
   _safeZone:
@@ -2096,6 +2096,34 @@ MonoBehaviour:
   _dayDataHolder: {fileID: 11400000, guid: 47e3d11fb7e2f8b469b78faad8710753, type: 2}
   _oxygenTimeLeft: {fileID: 11400000, guid: 441b3e0456182904d874df3da7980fe2, type: 2}
   _oxygenTimeHolder: {fileID: 11400000, guid: 4cc324fa99186ca47aa734330d0fd521, type: 2}
+--- !u!114 &1292221375223251820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5891093431902888186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfa76f733c3b2fe4a9749a304670779b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _event:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9177476015379082350}
+        m_TargetAssemblyTypeName: OxygenMeter, Assembly-CSharp
+        m_MethodName: EndDay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _gameEvent: {fileID: 11400000, guid: b416be0c83296d84a9e9552a5f87578e, type: 2}
 --- !u!1 &6090660949741362671
 GameObject:
   m_ObjectHideFlags: 0
@@ -2194,32 +2222,14 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0.3666631
-      value: 0.002351869
-      inSlope: 2
-      outSlope: 2
+      time: 0.4999964
+      value: 0.00706885
+      inSlope: -0.0075258943
+      outSlope: -0.0075258943
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.48971564
-      value: 0.7254708
-      inSlope: 1.0205568
-      outSlope: 1.0205568
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.8192067
-      value: 0.5765282
-      inSlope: 0.8840041
-      outSlope: 0.8840041
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      outWeight: 0.4934239
     - serializedVersion: 3
       time: 1
       value: 1
@@ -2232,7 +2242,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _fadeTime: 1
+  _fadeTime: 0.8
   _visibleTime: 5
 --- !u!114 &6098807434687080120
 MonoBehaviour:
@@ -2931,7 +2941,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 16.873291, y: -16.873215}
+  m_AnchoredPosition: {x: 16.873291, y: -16.87323}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &3844627944654770967
@@ -3184,7 +3194,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 16.873291, y: -16.873215}
+  m_AnchoredPosition: {x: 16.873291, y: -16.87323}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &8295577110040527734

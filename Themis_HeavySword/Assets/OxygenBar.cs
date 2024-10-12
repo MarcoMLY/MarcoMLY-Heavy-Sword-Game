@@ -78,7 +78,7 @@ public class OxygenBar : MonoBehaviour
     private Image GetSliderToFill(float value)
     {
         int intValue = Mathf.FloorToInt(value * _sliderFills.Length);
-        if (intValue == _sliderFills.Length)
+        if (intValue == _sliderFills.Length || intValue < 0)
             return null;
         return _sliderFills[intValue];
     }

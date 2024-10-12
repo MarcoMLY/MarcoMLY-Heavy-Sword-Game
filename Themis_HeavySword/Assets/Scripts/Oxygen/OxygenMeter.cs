@@ -10,7 +10,6 @@ using UnityEngine.InputSystem;
 
 public class OxygenMeter : MonoBehaviour
 {
-    [SerializeField] private InputActionAsset _inputMap;
     [SerializeField] private float _oxygenTime;
     private float _oxygenTimer;
 
@@ -30,7 +29,6 @@ public class OxygenMeter : MonoBehaviour
     [SerializeField] private FloatHolder _oxygenTimeLeft;
     [SerializeField] private FloatHolder _oxygenTimeHolder;
 
-    private InputAction _endDay;
     private float _startOxygen;
     private bool _dayEnding = false;
     public bool PlayerInSafeZone { get; private set; }
@@ -38,23 +36,8 @@ public class OxygenMeter : MonoBehaviour
 
     private void Awake()
     {
-        InputActionMap playerMap = _inputMap.FindActionMap("Player");
-        playerMap.Enable();
-
-        _endDay = playerMap.FindAction("EndDay");
-
         _oxygenTimeHolder.ChangeData(_oxygenTime);
         _oxygenTimer = _oxygenTime;
-    }
-
-    private void OnEnable()
-    {
-        _endDay.performed += EndDay;
-    }
-
-    private void OnDisable()
-    {
-        _endDay.performed -= EndDay;
     }
 
     private void Start()
@@ -97,11 +80,9 @@ public class OxygenMeter : MonoBehaviour
         return false;
     }
 
-    private void EndDay(InputAction.CallbackContext context)
+    public void EndDay()
     {
         if (_dayEnding)
-            return;
-        if (!context.performed)
             return;
         if (!CheckfIfInSafeZone())
             return;

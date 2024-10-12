@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 1433546573590854720}
   - component: {fileID: 4051110964087230846}
   - component: {fileID: 8346801891339162171}
+  - component: {fileID: 4931203983853521808}
+  - component: {fileID: 3989000120616949295}
   m_Layer: 0
   m_Name: DroppedMaterial
   m_TagString: Untagged
@@ -102,7 +104,6 @@ MonoBehaviour:
   _layerMask:
     serializedVersion: 2
     m_Bits: 64
-  _inputAsset: {fileID: -944628639613478452, guid: 7845958bc95bc5b40a05eb00304e56a4, type: 3}
   _temporaryStorageType: {fileID: 11400000, guid: a6a763f072809aa46b099ca4f5efbaa8, type: 2}
   _sendControlPrompt: {fileID: 11400000, guid: 4c3585ab9f25f1e4e97703477b2de70d, type: 2}
   _endControlPrompt: {fileID: 11400000, guid: 43f6c99cc76ab7244be3b7e15d692bd4, type: 2}
@@ -134,3 +135,59 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!114 &4931203983853521808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4352669077026097407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfa76f733c3b2fe4a9749a304670779b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _event:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4051110964087230846}
+        m_TargetAssemblyTypeName: DroppedMaterial, Assembly-CSharp
+        m_MethodName: PickingThingsUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _gameEvent: {fileID: 11400000, guid: b93a6fcc88df7364aae9e0c4a4abe649, type: 2}
+--- !u!114 &3989000120616949295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4352669077026097407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfa76f733c3b2fe4a9749a304670779b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _event:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4051110964087230846}
+        m_TargetAssemblyTypeName: DroppedMaterial, Assembly-CSharp
+        m_MethodName: StoppedPickingUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _gameEvent: {fileID: 11400000, guid: 509f106d147fe494ca11abe8934cb816, type: 2}

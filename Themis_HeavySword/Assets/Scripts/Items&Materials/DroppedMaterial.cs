@@ -12,15 +12,12 @@ public class DroppedMaterial : MonoBehaviour
     [SerializeField] private float _colliderRadius;
     [SerializeField] private LayerMask _layerMask;
 
-    private InputAction _playerPickingUp;
-    [SerializeField] private InputActionAsset _inputAsset;
-
     [SerializeField] private TemporaryStorage _temporaryStorageType;
 
     [SerializeField] private GameEventString _sendControlPrompt;
     [SerializeField] private GameEventString _endControlPrompt;
     [SerializeField] private string _controlPrompt;
-    private bool _controlPromptSent;
+    private bool _controlPromptSent, _pickingThingsUp = false;
 
     public void SetData(MaterialType crystalType, TemporaryStorage temporaryStorageType)
     {
@@ -30,11 +27,6 @@ public class DroppedMaterial : MonoBehaviour
         _spriteRenderer.color = _type.Color;
         _spriteRenderer.sprite = _type.Sprite;
         gameObject.AddComponent<PolygonCollider2D>();
-
-        InputActionMap playerMap = _inputAsset.FindActionMap("Player");
-        playerMap.Enable();
-
-        _playerPickingUp = playerMap.FindAction("PickThingsUp");
     }
 
     private void Update()
@@ -53,7 +45,7 @@ public class DroppedMaterial : MonoBehaviour
             _controlPromptSent = true;
         }
 
-        if (_playerPickingUp.IsPressed())
+        if (_pickingThingsUp)
         {
             _temporaryStorageType.StoreMaterial();
             _endControlPrompt.EventTriggered(_controlPrompt + "|" + gameObject.GetInstanceID());
@@ -70,6 +62,16 @@ public class DroppedMaterial : MonoBehaviour
     private void GetPickedUp()
     {
         Destroy(gameObject);
+    }
+
+    public void PickingThingsUp()
+    {
+        _pickingThingsUp = true;
+    }
+
+    public void StoppedPickingUp()
+    {
+        _pickingThingsUp = false;
     }
 
     private void OnDrawGizmosSelected()
