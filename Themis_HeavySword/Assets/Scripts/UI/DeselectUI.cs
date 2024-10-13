@@ -6,9 +6,18 @@ using UnityEngine.EventSystems;
 
 public class DeselectUI : DontDestroyOnLoadScene<DeselectUI>
 {
+    private EventSystem _eventSystem;
+
+    private void OnLevelWasLoaded(int level)
+    {
+        _eventSystem = FindAnyObjectByType<EventSystem>();
+    }
+
     // Update is called once per frame
     void Update()
     {
-        EventSystem.current.SetSelectedGameObject(null);
+        if (_eventSystem == null)
+            return;
+        _eventSystem.SetSelectedGameObject(null);
     }
 }
