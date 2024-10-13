@@ -16,15 +16,30 @@ public class SwordDamage : DamageSomething
 
     [SerializeField] private float _criticalStrikeChance, _criticalStrikeDamage;
 
+    [SerializeField] private DayDataHolder _dayDataHolder;
+    [SerializeField] private FloatHolder _miningDamageRandomChange;
+    [SerializeField] private GameObject _extraDamageText;
+
+    [SerializeField] private LayerMask _crystalLayer;
+    private Collider2D _damagedEnemy;
+
     private StuckInWall _stuckInWall;
     public Action<bool, float> OnCriticalStrike;
     private bool _stuck, _returningToPlayer, _isNextCriticalStrike;
+    private float _nextExtraDamage;
 
     private void Awake()
     {
         _stuckInWall = GetComponent<StuckInWall>();
         _isPlayerHoldingSword.ChangeData(true);
+    }
+
+    private void Start()
+    {
         _isNextCriticalStrike = UnityEngine.Random.Range(0, 100) > _criticalStrikeChance;
+        float randomChangeAmount = _miningDamageRandomChange.Variable;
+        float extraDamage = (_isNextCriticalStrike ? _criticalStrikeDamage : _damage) * Mathf.CeilToInt(_dayDataHolder.Day.SwordUpgradeAmount * UnityEngine.Random.Range(1 - randomChangeAmount, 1 + randomChangeAmount));
+        _nextExtraDamage = extraDamage;
     }
 
     private void OnEnable()
@@ -37,6 +52,12 @@ public class SwordDamage : DamageSomething
     {
         _stuckInWall.OnSwordStuck -= DamageObject;
         _stuckInWall.OnSwordUnstuck -= DamageObject;
+    }
+
+    private void Update()
+    {
+        if (_damagedEnemy != null && !_isSwordRenturning.Variable)
+            _damagedEnemy = null;
     }
 
     // Update is called once per frame
@@ -57,14 +78,40 @@ public class SwordDamage : DamageSomething
     {
         for (int i = 0; i < objectsHit.Length; i++)
         {
+            if (objectsHit[i] == _damagedEnemy)
+                return;
             IDameagable damageable = objectsHit[i].GetComponent<IDameagable>();
 
             if (damageable != null)
             {
                 _onDamageEnemy?.Invoke(false);
-                DamageWithCKChance(damageable, false);
+                DamageWithCKChance(damageable, false, objectsHit[i].gameObject.layer);
             }
+
+            if (_isSwordRenturning.Variable)
+                _damagedEnemy = objectsHit[i];
         }
+    }
+
+    private float AddExtraMiningDamage()
+    {
+        float damage = 0;
+        if (_dayDataHolder.Day.SwordUpgradeAmount > 0)
+        {
+            damage = _nextExtraDamage;
+            SpawnExtraDamageText(_nextExtraDamage);
+
+            float randomChangeAmount = _miningDamageRandomChange.Variable;
+            float extraDamage = (_isNextCriticalStrike ? _criticalStrikeDamage : _damage) * Mathf.CeilToInt(_dayDataHolder.Day.SwordUpgradeAmount * UnityEngine.Random.Range(1 - randomChangeAmount, 1 + randomChangeAmount));
+            _nextExtraDamage = extraDamage;
+        }
+        return damage;
+    }
+
+    private void SpawnExtraDamageText(float damageAmount)
+    {
+        DamageText damageText = Instantiate(_extraDamageText, transform.position, Quaternion.identity).GetComponent<DamageText>();
+        damageText.SpawnDamageText(damageAmount, damageAmount >= _dayDataHolder.Day.SwordUpgradeAmount * 2);
     }
 
     private void DamageObject(Collider2D collider)
@@ -73,8 +120,9 @@ public class SwordDamage : DamageSomething
 
         if (damageable != null)
         {
+            _damagedEnemy = collider;
             _onDamageEnemy?.Invoke(false);
-            DamageWithCKChance(damageable, true);
+            DamageWithCKChance(damageable, true, collider.gameObject.layer);
         }
     }
 
@@ -88,16 +136,21 @@ public class SwordDamage : DamageSomething
         return false;
     }
 
-    private void DamageWithCKChance(IDameagable objectToDamage, bool overrideImmunitTime)
+    private void DamageWithCKChance(IDameagable objectToDamage, bool overrideImmunitTime, int layer)
     {
         float damage = _isNextCriticalStrike ? _criticalStrikeDamage : _damage;
+        if (_crystalLayer.Contains(layer))
+            damage += AddExtraMiningDamage();
         if (objectToDamage.Damage(damage, gameObject, overrideImmunitTime))
             OnCriticalStrike?.Invoke(_isNextCriticalStrike, damage);
         _isNextCriticalStrike = UnityEngine.Random.Range(0, 101) <= _criticalStrikeChance;
     }
 
-    public float CheckDamageWillDeal()
+    public float CheckDamageWillDeal(int layer)
     {
-        return _isNextCriticalStrike ? _criticalStrikeDamage : _damage;
+        float damage = _isNextCriticalStrike ? _criticalStrikeDamage : _damage;
+        if (_crystalLayer.Contains(layer))
+            damage += _nextExtraDamage;
+        return damage;
     }
 }

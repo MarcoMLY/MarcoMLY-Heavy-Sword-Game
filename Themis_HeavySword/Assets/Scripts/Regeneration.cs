@@ -14,6 +14,7 @@ public class Regeneration : MonoBehaviour
     private void Awake()
     {
         _regenerationTimer = _regenerationWait;
+        StopAllCoroutines();
     }
 
     private void Update()

@@ -14,5 +14,10 @@ namespace UnityEngine.Data
         {
             Variable = newVariable;
         }
+
+        public void AddAmount(int newVariable)
+        {
+            Variable += newVariable;
+        }
     }
 }

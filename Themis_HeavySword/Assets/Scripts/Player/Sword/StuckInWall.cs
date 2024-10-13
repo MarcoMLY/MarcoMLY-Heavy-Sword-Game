@@ -138,7 +138,7 @@ public class StuckInWall : MonoBehaviour, IStateable
                 StickInEnemy(enemy);
                 return;
             }
-            if (enemyHealth.CurrentHealth <= _swordDamage.CheckDamageWillDeal())
+            if (enemyHealth.CurrentHealth <= _swordDamage.CheckDamageWillDeal(enemy.gameObject.layer))
             {
                 OnSwordStuck?.Invoke(enemy);
                 _killedEnemy = true;

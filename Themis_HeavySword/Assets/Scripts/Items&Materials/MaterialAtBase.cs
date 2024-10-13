@@ -12,8 +12,14 @@ public class MaterialAtBase : MonoBehaviour
     bool _oxygenTanksFull = false;
 
     [SerializeField] private MaterialType _materialType;
+    [SerializeField] private TemporaryStorage _materialStorage;
     [SerializeField] private UnityEvent _onCrystalUsed;
     [SerializeField] private UnityEvent _onMaterialClicked;
+
+    private void Awake()
+    {
+        SetMaterialAmount(_materialStorage.GetAmount());
+    }
 
     public void SetMaterialAmount(int amount)
     {
@@ -51,5 +57,8 @@ public class MaterialAtBase : MonoBehaviour
     public void DecreaseAmount()
     {
         Amount -= 1;
+        if (Amount <= 0)
+            Amount = 0;
+        _materialStorage.UseMaterials(1);
     }
 }

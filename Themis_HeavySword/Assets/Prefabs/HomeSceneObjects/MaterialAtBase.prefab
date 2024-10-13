@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8970060571714211031}
   - component: {fileID: 2349556174800091833}
   - component: {fileID: 8424576142944762988}
+  - component: {fileID: 3474566302412455271}
   m_Layer: 0
   m_Name: MaterialAtBase
   m_TagString: Untagged
@@ -33,7 +34,7 @@ Transform:
   m_Children:
   - {fileID: 4579695359212878677}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8970060571714211031
 SpriteRenderer:
@@ -100,7 +101,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _text: {fileID: 1429675931184826028}
-  _materialType: {fileID: 0}
+  _materialType: {fileID: 11400000, guid: dd30f304f02362443a8ceb11dd4bb19b, type: 2}
+  _materialStorage: {fileID: 11400000, guid: a6a763f072809aa46b099ca4f5efbaa8, type: 2}
   _onCrystalUsed:
     m_PersistentCalls:
       m_Calls:
@@ -177,6 +179,34 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &3474566302412455271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2448760425202495038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfa76f733c3b2fe4a9749a304670779b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _event:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2349556174800091833}
+        m_TargetAssemblyTypeName: MaterialAtBase, Assembly-CSharp
+        m_MethodName: OxygenFullyReplenished
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _gameEvent: {fileID: 11400000, guid: f867b9cb927420c4a9f255bd412da625, type: 2}
 --- !u!1 &5264579906508719027
 GameObject:
   m_ObjectHideFlags: 0

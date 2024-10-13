@@ -116,7 +116,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5500937097099311759}
-  - component: {fileID: 1726823013492306360}
+  - component: {fileID: 2313166175133431623}
   - component: {fileID: 5625290963052545199}
   - component: {fileID: 6046278745513912427}
   m_Layer: 15
@@ -143,7 +143,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1726823013492306360
+--- !u!114 &2313166175133431623
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -152,10 +152,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5627878253489791378}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eeca95397b9642e4191444f099c3f49e, type: 3}
+  m_Script: {fileID: 11500000, guid: 2345a4c853c67b247aab9cc615619317, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <TotalHealth>k__BackingField: 2
+  <TotalHealth>k__BackingField: 10
   <CurrentHealth>k__BackingField: 0
   _onDamaged:
     m_PersistentCalls:
@@ -364,7 +364,7 @@ PrefabInstance:
     - target: {fileID: 7834822249781070047, guid: 59d36fe21d655fd44a8510c83ac10d15, type: 3}
       propertyPath: EnemyHealth
       value: 
-      objectReference: {fileID: 1726823013492306360}
+      objectReference: {fileID: 2313166175133431623}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

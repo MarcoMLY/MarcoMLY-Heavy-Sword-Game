@@ -425,7 +425,7 @@ MonoBehaviour:
         m_CallState: 2
   _immuneLayers:
     serializedVersion: 2
-    m_Bits: 5632
+    m_Bits: 30208
   _immuneTime: 0.6
 --- !u!114 &-9094713417984677751
 MonoBehaviour:

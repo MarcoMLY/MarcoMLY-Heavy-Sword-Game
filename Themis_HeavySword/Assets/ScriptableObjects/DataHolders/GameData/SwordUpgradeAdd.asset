@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e9a8f33aee1b6f4ea646c8382d5e72d, type: 3}
-  m_Name: EnemyImmune
+  m_Script: {fileID: 11500000, guid: 1b684c81224fb5a499b812d1602f8a21, type: 3}
+  m_Name: SwordUpgradeAdd
   m_EditorClassIdentifier: 
-  <Variable>k__BackingField:
-    serializedVersion: 2
-    m_Bits: 30208
+  <Variable>k__BackingField: 0
