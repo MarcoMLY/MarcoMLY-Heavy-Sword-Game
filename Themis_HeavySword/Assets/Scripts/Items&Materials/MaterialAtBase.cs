@@ -48,9 +48,8 @@ public class MaterialAtBase : MonoBehaviour
         if (Amount <= 0)
             return;
         _onMaterialClicked?.Invoke();
-        if (_oxygenTanksFull)
-            return;
-        _onCrystalUsed?.Invoke();
+        if (!_oxygenTanksFull)
+            _onCrystalUsed?.Invoke();
         SetVisuals();
     }
 

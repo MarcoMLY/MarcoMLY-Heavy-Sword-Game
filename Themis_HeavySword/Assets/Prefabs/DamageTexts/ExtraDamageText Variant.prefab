@@ -9,6 +9,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 447911379056038469, guid: 20b0e418b96741d4b938c7c3cab40713, type: 3}
+      propertyPath: _time
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 447911379056038469, guid: 20b0e418b96741d4b938c7c3cab40713, type: 3}
       propertyPath: _prefix
       value: +
       objectReference: {fileID: 0}
@@ -23,6 +27,14 @@ PrefabInstance:
     - target: {fileID: 447911379056038469, guid: 20b0e418b96741d4b938c7c3cab40713, type: 3}
       propertyPath: _normalColor.r
       value: 0.2783019
+      objectReference: {fileID: 0}
+    - target: {fileID: 447911379056038469, guid: 20b0e418b96741d4b938c7c3cab40713, type: 3}
+      propertyPath: _randomMoveAmount
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 447911379056038469, guid: 20b0e418b96741d4b938c7c3cab40713, type: 3}
+      propertyPath: _randomOffsetAmount
+      value: 1.6
       objectReference: {fileID: 0}
     - target: {fileID: 447911379056038469, guid: 20b0e418b96741d4b938c7c3cab40713, type: 3}
       propertyPath: _criticalStrikeColor.b
@@ -46,7 +58,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1877034599814762634, guid: 20b0e418b96741d4b938c7c3cab40713, type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1877034599814762634, guid: 20b0e418b96741d4b938c7c3cab40713, type: 3}
       propertyPath: m_AnchorMax.x
@@ -123,6 +135,22 @@ PrefabInstance:
     - target: {fileID: 4503943992135599674, guid: 20b0e418b96741d4b938c7c3cab40713, type: 3}
       propertyPath: m_Name
       value: ExtraDamageText Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 5466806183861532032, guid: 20b0e418b96741d4b938c7c3cab40713, type: 3}
+      propertyPath: m_text
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5466806183861532032, guid: 20b0e418b96741d4b938c7c3cab40713, type: 3}
+      propertyPath: m_fontSize
+      value: 15.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5466806183861532032, guid: 20b0e418b96741d4b938c7c3cab40713, type: 3}
+      propertyPath: m_margin.x
+      value: -0.5870333
+      objectReference: {fileID: 0}
+    - target: {fileID: 5466806183861532032, guid: 20b0e418b96741d4b938c7c3cab40713, type: 3}
+      propertyPath: m_margin.z
+      value: -0.5026226
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

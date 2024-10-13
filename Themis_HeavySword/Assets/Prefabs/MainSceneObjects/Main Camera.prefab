@@ -924,7 +924,7 @@ MonoBehaviour:
   - {fileID: 4310704944653275041}
   _titleText: {fileID: 5616003785079361956}
   _fadeTime: 1
-  _waitToFade: 3
+  _waitToFade: 1
   _waitToAppearButtons: 0.2
 --- !u!225 &6651289825418065399
 CanvasGroup:

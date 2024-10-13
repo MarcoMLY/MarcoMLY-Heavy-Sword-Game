@@ -890,7 +890,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _criticalStrikeChance: 20
+  _criticalStrikeChance: 15
   _criticalStrikeDamage: 3
   _dayDataHolder: {fileID: 11400000, guid: 47e3d11fb7e2f8b469b78faad8710753, type: 2}
   _miningDamageRandomChange: {fileID: 11400000, guid: 3b69300c1ad19204c9e91abe186902f6, type: 2}

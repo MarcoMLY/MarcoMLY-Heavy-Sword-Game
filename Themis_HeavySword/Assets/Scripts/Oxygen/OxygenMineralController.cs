@@ -63,7 +63,7 @@ public class OxygenMineralController : MonoBehaviour
         {
             materialAmounts[i] = _materials.TemporaryStorages[i].GetAmount();
         }
-        DaySave daySave = new DaySave(_dayData.Day.CrystalHealths, _dayData.Day.IsPermanentEnemyKilled, materialAmounts, _oxygen - 5, _dayData.Day.StartPosition, _swordUpgradeAmount.Variable, _dayData.Day.HasSpecialAbilities);
+        DaySave daySave = new DaySave(_dayData.Day.CrystalHealths, _dayData.Day.IsPermanentEnemyKilled, materialAmounts, _oxygen - 5, _dayData.Day.StartPosition, _swordUpgradeAmount.Variable + _dayData.Day.SwordUpgradeAmount, _dayData.Day.HasSpecialAbilities);
         _swordUpgradeAmount.ChangeData(0);
         SaveSystem.SaveData(_saveSlot.Variable, _dayData.CurrentDay + 1, daySave);
         _dayData.SetData(_dayData.CurrentDay + 1, daySave);
