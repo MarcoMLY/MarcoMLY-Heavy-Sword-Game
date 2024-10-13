@@ -625,18 +625,6 @@ MonoBehaviour:
   _onAutoSpin:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 5e11385aa3082734ca3f01c7569aef1b, type: 2}
-        m_TargetAssemblyTypeName: UnityEngine.Data.BoolHolder, Assembly-CSharp
-        m_MethodName: ChangeData
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 4320563470603599959}
         m_TargetAssemblyTypeName: ColliderManager, Assembly-CSharp
         m_MethodName: SetCollisionPassThroughWalls
@@ -648,6 +636,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 5e11385aa3082734ca3f01c7569aef1b, type: 2}
+        m_TargetAssemblyTypeName: UnityEngine.Data.BoolHolder, Assembly-CSharp
+        m_MethodName: ChangeData
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1456877985475548880
 MonoBehaviour:
@@ -998,6 +998,7 @@ GameObject:
   - component: {fileID: 5784597398132450537}
   - component: {fileID: 3717883252394209781}
   - component: {fileID: 7956314948657351673}
+  - component: {fileID: 3741549012219823366}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -1292,6 +1293,30 @@ MonoBehaviour:
           m_StringArgument: PlayerHurt
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 899df4fdeebbcf348a8c641dee45e78f, type: 2}
+        m_TargetAssemblyTypeName: GameEvent, Assembly-CSharp
+        m_MethodName: EventTriggered
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: PlayerHurt
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3741549012219823366}
+        m_TargetAssemblyTypeName: Regeneration, Assembly-CSharp
+        m_MethodName: ResetRegeneration
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: PlayerHurt
+          m_BoolArgument: 0
+        m_CallState: 2
   _onDie:
     m_PersistentCalls:
       m_Calls:
@@ -1328,6 +1353,51 @@ MonoBehaviour:
   _criticalStrikeAmount: 3
   _currentHealth: {fileID: 11400000, guid: 5b9d089cc1bc254488dbba3fde3b53e2, type: 2}
   _maxHealth: {fileID: 11400000, guid: 9e01feab2f4c8a14492b991ad90d5eb4, type: 2}
+--- !u!114 &3741549012219823366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2329106853517112545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ce9502f13b46ae48aaf213fe7886cdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _regenerationWait: 10
+  _regenerationAmount: 2
+  _regenerateSmallWait: 2
+  _aboutToRegenerate:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: c88bc6496691b5242b70fd2d2d163af7, type: 2}
+        m_TargetAssemblyTypeName: GameEventFloat, Assembly-CSharp
+        m_MethodName: EventTriggered
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onRegenerate:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7956314948657351673}
+        m_TargetAssemblyTypeName: PlayerHealth, Assembly-CSharp
+        m_MethodName: Regenerate
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 2
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2637187435428658595
 GameObject:
   m_ObjectHideFlags: 0

@@ -50,4 +50,13 @@ public class PlayerHealth : Health
         StartCoroutine(DeImmune());
         return true;
     }
+
+    public void Regenerate(float regenerationAmount)
+    {
+        CurrentHealth += regenerationAmount;
+        if (CurrentHealth > TotalHealth)
+        {
+            CurrentHealth = TotalHealth;
+        }
+    }
 }

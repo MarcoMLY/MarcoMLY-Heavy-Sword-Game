@@ -10173,11 +10173,17 @@ MonoBehaviour:
   m_Area: 0
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
---- !u!1 &558344851 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2049920311618120182, guid: 11082b3b940d6a345a65ccc28ec4f253, type: 3}
+--- !u!114 &558344856 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4320563470603599959, guid: 11082b3b940d6a345a65ccc28ec4f253, type: 3}
   m_PrefabInstance: {fileID: 4605546618809529230}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34043b1c0da55f44fa5cf9d92ca54107, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &602452650
 GameObject:
   m_ObjectHideFlags: 0
@@ -20051,6 +20057,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6400272305354309671, guid: a98a4ee922d30f2439dbbfa7937d2ede, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6400272305354309671, guid: a98a4ee922d30f2439dbbfa7937d2ede, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -20108,37 +20122,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 593206960146870380, guid: 11082b3b940d6a345a65ccc28ec4f253, type: 3}
-      propertyPath: _event.m_PersistentCalls.m_Calls.Array.size
+    - target: {fileID: 165110487307624314, guid: 11082b3b940d6a345a65ccc28ec4f253, type: 3}
+      propertyPath: _onAutoSpin.m_PersistentCalls.m_Calls.Array.size
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 593206960146870380, guid: 11082b3b940d6a345a65ccc28ec4f253, type: 3}
-      propertyPath: _event.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+    - target: {fileID: 165110487307624314, guid: 11082b3b940d6a345a65ccc28ec4f253, type: 3}
+      propertyPath: _onAutoSpin.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 593206960146870380, guid: 11082b3b940d6a345a65ccc28ec4f253, type: 3}
-      propertyPath: _event.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+    - target: {fileID: 165110487307624314, guid: 11082b3b940d6a345a65ccc28ec4f253, type: 3}
+      propertyPath: _onAutoSpin.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 558344851}
-    - target: {fileID: 593206960146870380, guid: 11082b3b940d6a345a65ccc28ec4f253, type: 3}
-      propertyPath: _event.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      objectReference: {fileID: 558344856}
+    - target: {fileID: 165110487307624314, guid: 11082b3b940d6a345a65ccc28ec4f253, type: 3}
+      propertyPath: _onAutoSpin.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 593206960146870380, guid: 11082b3b940d6a345a65ccc28ec4f253, type: 3}
-      propertyPath: _event.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: SwordUnstuck
+    - target: {fileID: 165110487307624314, guid: 11082b3b940d6a345a65ccc28ec4f253, type: 3}
+      propertyPath: _onAutoSpin.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: SetCollisionPassThroughWalls
       objectReference: {fileID: 0}
-    - target: {fileID: 593206960146870380, guid: 11082b3b940d6a345a65ccc28ec4f253, type: 3}
-      propertyPath: _event.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
-      value: SwordDamage, Assembly-CSharp
+    - target: {fileID: 165110487307624314, guid: 11082b3b940d6a345a65ccc28ec4f253, type: 3}
+      propertyPath: _onAutoSpin.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: ColliderManager, Assembly-CSharp
       objectReference: {fileID: 0}
-    - target: {fileID: 593206960146870380, guid: 11082b3b940d6a345a65ccc28ec4f253, type: 3}
-      propertyPath: _event.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+    - target: {fileID: 165110487307624314, guid: 11082b3b940d6a345a65ccc28ec4f253, type: 3}
+      propertyPath: _onAutoSpin.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 2329106853517112545, guid: 11082b3b940d6a345a65ccc28ec4f253, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741549012219823366, guid: 11082b3b940d6a345a65ccc28ec4f253, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

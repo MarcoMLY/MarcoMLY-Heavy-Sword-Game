@@ -17,6 +17,7 @@ public class DroppedMaterial : MonoBehaviour
     [SerializeField] private GameEventString _sendControlPrompt;
     [SerializeField] private GameEventString _endControlPrompt;
     [SerializeField] private string _controlPrompt;
+    [SerializeField] private int _importance;
     private bool _controlPromptSent, _pickingThingsUp = false;
 
     public void SetData(MaterialType crystalType, TemporaryStorage temporaryStorageType)
@@ -34,21 +35,21 @@ public class DroppedMaterial : MonoBehaviour
         if (!CanBeSuckedUp())
         {
             if (_controlPromptSent)
-                _endControlPrompt.EventTriggered(_controlPrompt + "|" + gameObject.GetInstanceID());
+                _endControlPrompt.EventTriggered(_controlPrompt + "|" + _importance.ToString());
             _controlPromptSent = false;
             return;
         }
 
         if (!_controlPromptSent)
         {
-            _sendControlPrompt.EventTriggered(_controlPrompt + "|" + gameObject.GetInstanceID());
+            _sendControlPrompt.EventTriggered(_controlPrompt + "|" + _importance.ToString());
             _controlPromptSent = true;
         }
 
         if (_pickingThingsUp)
         {
             _temporaryStorageType.StoreMaterial();
-            _endControlPrompt.EventTriggered(_controlPrompt + "|" + gameObject.GetInstanceID());
+            _endControlPrompt.EventTriggered(_controlPrompt + "|" + _importance.ToString());
             GetPickedUp();
         }
     }
