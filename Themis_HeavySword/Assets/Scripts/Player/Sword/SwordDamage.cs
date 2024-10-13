@@ -139,9 +139,10 @@ public class SwordDamage : DamageSomething
     private void DamageWithCKChance(IDameagable objectToDamage, bool overrideImmunitTime, int layer)
     {
         float damage = _isNextCriticalStrike ? _criticalStrikeDamage : _damage;
+        float extraDamage = 0;
         if (_crystalLayer.Contains(layer))
-            damage += AddExtraMiningDamage();
-        if (objectToDamage.Damage(damage, gameObject, overrideImmunitTime))
+            extraDamage = AddExtraMiningDamage();
+        if (objectToDamage.Damage(damage + extraDamage, gameObject, overrideImmunitTime))
             OnCriticalStrike?.Invoke(_isNextCriticalStrike, damage);
         _isNextCriticalStrike = UnityEngine.Random.Range(0, 101) <= _criticalStrikeChance;
     }

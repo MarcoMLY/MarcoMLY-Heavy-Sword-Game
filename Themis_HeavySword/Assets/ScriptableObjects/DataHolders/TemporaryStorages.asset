@@ -15,3 +15,4 @@ MonoBehaviour:
   TemporaryStorages:
   - {fileID: 11400000, guid: a6a763f072809aa46b099ca4f5efbaa8, type: 2}
   - {fileID: 11400000, guid: bdc99795f66a5ce429dafef989f27bae, type: 2}
+  - {fileID: 11400000, guid: 503a76f9d4c3130449ed15be6f9d9c57, type: 2}
