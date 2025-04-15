@@ -26,9 +26,9 @@ public class OxygenTanks : MonoBehaviour
         _oxygens[tanksFilled].color = new Color32(_oxygenColor.r, _oxygenColor.g, _oxygenColor.b, (byte)(((_oxygen / 5) - tanksFilled) * 255));
     }
 
-    public void FillUpTank()
+    public void FillUpTank(float oxygen)
     {
-        _oxygen += 1;
+        _oxygen += oxygen;
         FillTankVisual();
     }
 }
